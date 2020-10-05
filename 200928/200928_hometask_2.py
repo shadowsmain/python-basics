@@ -1,7 +1,6 @@
 import statistics
-with open('student_logs.txt', 'r', encoding='utf-8') as f:
+with open('students_log.txt', 'r', encoding='utf-8') as f:
     for row in f.read().splitlines():
-
         l = len(row)
         shadow = []
         i = 0
