@@ -1,25 +1,16 @@
-import statistics
-with open('students_log.txt', 'r', encoding='utf-8') as f:
-    for row in f.read().splitlines():
-        l = len(row)
-        shadow = []
-        i = 0
-        while i < l:
-            s_int = ''
-            a = row[i]
-            while '0' <= a <= '9':
-                s_int += a
-                i += 1
-                if i < l:
-                    a = row[i]
-                else:
-                    break
-            i += 1
-            if s_int != '':
-                shadow.append(int(s_int))
-
-        print(row.split()[0], row.split()[1], row.split()[2].replace(",", ":"), shadow)
+concrete_request = 'https://translate.google.ru/#view=home&op=translate&sl=auto&tl=ru&text=patronymic'
 
 
-        avg = statistics.mean(shadow)
-        print(avg)
+def parse_get_data(request):
+trash, raw_get_data = concrete_request.split('?', maxsplit=1)
+get_data = raw_get_data.split('&')
+
+parsed_get_data = []
+parsed_get_data_as_dict = {}
+for pair in get_data:
+    tmp = pair.split('=')
+    parsed_get_data.append(tmp)
+    parsed_get_data_as_dict[tmp[0]] = tmp[1]
+return(parsed_get_data_as_dict)
+
+request_1 = parse_get_data('https://translate.google.ru/#view=home&op=translate&sl=auto&tl=ru&text=patronymic')
