@@ -12,7 +12,8 @@ class Student:
 
 pupil_1 = Student()
 pupil_1.name = 'Владислав'
-pupil_1.age = '18'
+pupil_1.surname = 'Теплов'
+pupil_1.age = '54'
 pupil_1.group = '33'
 
 pupil_2 = Student()
